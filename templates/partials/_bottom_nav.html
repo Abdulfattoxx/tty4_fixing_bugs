@@ -1,0 +1,23 @@
+<nav class="bottom-nav">
+  <a href="/" class="nav-item{% if request.path == '/' %} active{% endif %}">
+    <img src="{% static 'shop/icons/home.svg' %}" alt="Home">
+    <span>Home</span>
+  </a>
+  <a href="/search/" class="nav-item{% if request.path.startswith('/search') %} active{% endif %}">
+    <img src="{% static 'shop/icons/search.svg' %}" alt="Search">
+    <span>Search</span>
+  </a>
+  <a href="/categories/" class="nav-item center{% if request.path.startswith('/categories') %} active{% endif %}">
+    <img src="{% static 'shop/icons/candy.svg' %}" alt="Categories">
+  </a>
+  <a href="/cart/" class="nav-item{% if request.path.startswith('/cart') %} active{% endif %}">
+    <img src="{% static 'shop/icons/cart.svg' %}" alt="Cart">
+    <span class="badge" id="cart-badge">0</span>
+    <span>Cart</span>
+  </a>
+  <a href="/profile/" class="nav-item{% if request.path.startswith('/profile') %} active{% endif %}">
+    <img src="{% static 'shop/icons/user.svg' %}" alt="Profile">
+    <span class="badge" id="fav-badge">0</span>
+    <span>Profile</span>
+  </a>
+</nav>

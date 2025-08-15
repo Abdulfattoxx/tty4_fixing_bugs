@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Cart{% endblock %}
+{% block header %}Cart{% endblock %}
+{% block content %}
+<table class="cart-table">
+  {% for item in items %}
+  <tr data-slug="{{ item.product.slug }}">
+    <td>{{ item.product.name }}</td>
+    <td>{{ item.product.price }}</td>
+    <td>
+      <button class="js-qty-dec" data-slug="{{ item.product.slug }}">-</button>
+      <span class="qty">{{ item.qty }}</span>
+      <button class="js-qty-inc" data-slug="{{ item.product.slug }}">+</button>
+    </td>
+    <td>{{ item.line_total }}</td>
+    <td><button class="js-cart-remove" data-slug="{{ item.product.slug }}">x</button></td>
+  </tr>
+  {% empty %}
+  <tr><td colspan="5">Empty</td></tr>
+  {% endfor %}
+</table>
+<p class="cart-total">Total: <span id="cart-total">{{ total }}</span></p>
+<button id="checkout-btn">Checkout</button>
+{% endblock %}

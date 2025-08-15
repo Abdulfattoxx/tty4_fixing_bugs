@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Candy Shop{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'shop/app.css' %}">
+    <script defer src="{% static 'shop/app.js' %}"></script>
+</head>
+<body class="tg-theme">
+    <header class="page-header">
+        <h1>{% block header %}{% endblock %}</h1>
+    </header>
+    <main class="page-content">
+        {% block content %}{% endblock %}
+    </main>
+    {% include 'partials/_bottom_nav.html' %}
+</body>
+</html>

@@ -4,8 +4,7 @@ from django.urls import reverse
 from django.views.decorators.http import require_POST
 from .models import Product, Favorite, CartItem, Category
 from decimal import Decimal
-from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 
 
 def _get_qty(request, default=1):
@@ -174,23 +173,6 @@ def cart_update(request, slug):
     next_url = request.POST.get("next") or reverse("cart_view")
     return redirect(next_url)
 
-
-def tg_app(request):
-    # products + fav_ids tayyorlab berish (xuddi product_list'dagi kabi)
-    q = request.GET.get("q", "")
-    products = Product.objects.filter(is_active=True)
-    if q:
-        products = products.filter(description__icontains=q)  # yoki name__icontains
-    fav_ids = set()
-    if request.user.is_authenticated:
-        fav_ids = set(Favorite.objects.filter(
-            user=request.user, product__in=products
-        ).values_list("product_id", flat=True))
-    return render(request, "shop/tg_app.html", {"products": products, "fav_ids": fav_ids, "q": q})
-
-@csrf_exempt
-def tg_auth(request):
-    return HttpResponse(status=204)
 
 
 # ---- Additional views for WebApp ----

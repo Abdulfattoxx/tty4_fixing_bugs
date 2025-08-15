@@ -40,8 +40,6 @@ urlpatterns = [
     path("api/cart/add/", shop_views.cart_add_api, name="cart_add_api"),
     path("api/cart/update/", shop_views.cart_update_api, name="cart_update_api"),
     path("api/cart/remove/", shop_views.cart_remove_api, name="cart_remove_api"),
-    path("tg/app/",  shop_views.tg_app,  name="tg_app"),
-    path("tg/auth/", shop_views.tg_auth, name="tg_auth"),
     # auth (login/logout/password pages)
     path("accounts/", include("django.contrib.auth.urls")),
     # signup (o'zimizniki)

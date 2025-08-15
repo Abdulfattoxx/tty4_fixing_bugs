@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}{{ product.name }}{% endblock %}
+{% block header %}{{ product.name }}{% endblock %}
+{% block content %}
+<div class="product-detail" data-product-id="{{ product.id }}">
+  {% if product.image %}<img src="{{ product.image.url }}" alt="{{ product.name }}" class="detail-img">{% endif %}
+  <p class="price">{{ product.price }}</p>
+  <p>{{ product.description }}</p>
+  <button class="btn js-fav-toggle" data-product-id="{{ product.id }}">
+    {% if is_fav %}Unfavorite{% else %}Favorite{% endif %}
+  </button>
+  <button class="btn js-add-to-cart" data-slug="{{ product.slug }}">Add to cart</button>
+</div>
+{% endblock %}

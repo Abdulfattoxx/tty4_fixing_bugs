@@ -1,0 +1,71 @@
+:root {
+  --bg: #fff;
+  --text: #000;
+  --accent: #ff4081;
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  font-family: sans-serif;
+}
+.page-content {
+  padding-bottom: 60px; /* space for nav */
+}
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  background: var(--bg);
+  border-top: 1px solid #ccc;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.bottom-nav .nav-item {
+  text-align: center;
+  padding: 6px 4px;
+  flex: 1;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 12px;
+  position: relative;
+}
+.bottom-nav .nav-item.center {
+  margin-top: -16px;
+}
+.bottom-nav .nav-item .badge {
+  position: absolute;
+  top: 2px;
+  right: 12px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 10px;
+  padding: 0 4px;
+  font-size: 10px;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(150px,1fr));
+  gap: 10px;
+  padding: 10px;
+}
+.product-card {
+  background: var(--bg);
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 8px;
+}
+.product-card img {
+  width: 100%;
+  height: auto;
+}
+.btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}

@@ -18,4 +18,5 @@ def signup(request):
             return redirect(next_url or "product_list")
     else:
         form = UserCreationForm()
-    return render(request, "registration/signup.html", {"form": form})
+    # Use new shop template
+    return render(request, "shop/signup.html", {"form": form})

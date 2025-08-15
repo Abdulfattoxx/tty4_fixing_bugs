@@ -24,6 +24,8 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     # shop
     path("", shop_views.product_list, name="product_list"),
+    path("search/", shop_views.search_view, name="search"),
+    path("categories/", shop_views.categories_view, name="categories"),
     path("p/<slug:slug>/", shop_views.product_detail, name="product_detail"),
     path("fav/<slug:slug>/toggle/", shop_views.toggle_favorite, name="toggle_favorite"),
     path("cart/", shop_views.cart_view, name="cart_view"),
@@ -31,8 +33,13 @@ urlpatterns = [
     path("cart/remove/<slug:slug>/", shop_views.cart_remove, name="cart_remove"),
     path("cart/update/<slug:slug>/", shop_views.cart_update, name="cart_update"),
     path("favorites/", shop_views.favorite_list, name="favorite_list"),
-    path("tg/app/",  shop_views.tg_app,  name="tg_app"),
-    path("tg/auth/", shop_views.tg_auth, name="tg_auth"),
+    path("profile/", shop_views.profile_view, name="profile"),
+    # API endpoints
+    path("api/auth/me/", shop_views.auth_me, name="auth_me"),
+    path("api/favorites/toggle/", shop_views.favorites_toggle_api, name="favorites_toggle_api"),
+    path("api/cart/add/", shop_views.cart_add_api, name="cart_add_api"),
+    path("api/cart/update/", shop_views.cart_update_api, name="cart_update_api"),
+    path("api/cart/remove/", shop_views.cart_remove_api, name="cart_remove_api"),
     # auth (login/logout/password pages)
     path("accounts/", include("django.contrib.auth.urls")),
     # signup (o'zimizniki)

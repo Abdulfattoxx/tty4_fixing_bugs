@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Profile{% endblock %}
+{% block header %}Profile{% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+<p>Email: {{ user.email }}</p>
+<a href="/accounts/logout/" class="btn" id="logout-btn">Logout</a>
+{% else %}
+<p>You are not logged in.</p>
+<a href="/accounts/login/">Login</a>
+{% endif %}
+{% endblock %}
